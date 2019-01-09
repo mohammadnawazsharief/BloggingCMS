@@ -21,10 +21,10 @@
         ]); ?>
     </script>
 </head>
-<body>
+<body style="background-color: black">
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+        <nav style="background-color:black" class="navbar navbar-default navbar-static-top">
+            <div  class="container">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -95,12 +95,28 @@
                             </li>
 
                             <li class="list-group-item">
+                                <a href=" {{ route('tags') }} ">Tags</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href=" {{ route('tag.create') }} ">Create Tags</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href=" {{ route('posts') }} ">All Posts</a>
+                            </li>
+                            <li class="list-group-item">
                                 <a href=" {{ route('post.create') }} ">Create New Post</a>
                             </li>
-                            
                             <li class="list-group-item">
-                                <a href=" {{ route('post.create') }} ">Delete New Post</a>
+                                <a href=" {{ route('posts.trashed') }} ">All Trashed Posts</a>
                             </li>
+                            <li class="list-group-item">
+                                <a href=" {{ route('users') }} ">Users</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href=" {{ route('user.create') }} ">New User</a>
+                            </li>
+                            
+                            
                         </ul>
                     </div>
                 @endif
@@ -122,6 +138,10 @@
     <script type="text/javascript">
         @if(Session::has('success'))
             toastr.success("{{Session::get('success')}}");
+
+        @endif
+        @if(Session::has('info'))
+            toastr.info("{{Session::get('info')}}");
 
         @endif
     </script>

@@ -5,7 +5,7 @@
 	@include('Admin.includes.error')
 
 <div class="panel panel-default">
-	<div class="panel-heading">
+	<div class="panel-heading text-center">
 		Update Category: {{$category->name}}
 	</div>
 	<div class="panel-body">

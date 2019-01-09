@@ -15,20 +15,20 @@
 
 <div class="panel panel-default">
 	<div class="panel-heading text-center">
-		Create a New Category
+		Create a New Tag
 	</div>
 	<div class="panel-body">
-		<form action=" {{ route('category.store')}}" method="post" >
+		<form action=" {{ route('tag.store')}}" method="post" >
 			{{ csrf_field() }}
 			<div class="form-group">
-				<label for="name">Name</label>
-				<input class="form-control" type="text" id="name" 		name="name">
+				<label for="name">Tag</label>
+				<input class="form-control" type="text" id="name" 		name="tag">
 			</div>
 			
 			<div class="form-group">
 				<div class="text-center">
 					<button class="btn btn-success" type="submit">
-						Store Category
+						Store Tag
 					</button>
 				</div>
 			</div>

@@ -15,24 +15,29 @@
 
 <div class="panel panel-default">
 	<div class="panel-heading text-center">
-		Create a New Post
+		Edit Post: {{$post->title}}
 	</div>
 	<div class="panel-body">
-		<form action=" {{ route('post.store')}}" method="post" enctype="multipart/form-data">
+		<form action=" {{ route('post.update',['id'=>$post->id])}}" method="post" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			<div class="form-group">
 				<label for="title">Title</label>
-				<input class="form-control" type="text" id="title" 		name="title">
+				<input class="form-control" type="text" id="title" 		name="title" value="{{ $post->title }}  ">
 			</div>
 			<div class="form-group">
 				<label for="featured">Featured Image</label>
-				<input class="form-control" type="file" id="featured" 	name="featured">
+				<input class="form-control" type="file" id="featured" 	name="featured" value="">
 			</div>
 			<div class="form-group">
 				<label for="category">Select Category</label>
-				<select class="form-control" id="category" name="category_id">
+				<select class="form-control" id="category" name="category_id" >
 					@foreach($categories as $category)
-						<option value=" {{$category->id}} ">
+						<option value=" {{$category->id}}"
+						@if($post->category->id == $category->id)
+							selected							
+						@endif
+	
+						>
 							{{$category->name}}
 						</option>
 					@endforeach
@@ -43,7 +48,13 @@
 				<label for="tags">Select tags</label>
 				@foreach($tags as $tag)
 				<div class="checkbox">
-					<label><input type="checkbox" name="tags[]" value="{{$tag->id}}">
+					<label><input type="checkbox" name="tags[]" value="{{$tag->id}}"
+					@foreach($post->tags as $t)
+						@if($tag->id == $t->id)
+							checked
+						@endif
+					@endforeach
+					>
 						{{$tag->tag}}					
 					</label>
 				</div>
@@ -52,12 +63,12 @@
 
 			<div class="form-group">
 				<label for="content">Content</label>
-				<textarea name="content" id="content" cols="5" rows="5" class="form-control"></textarea>
+				<textarea name="content" id="content" cols="5" rows="5" class="form-control">{{ $post->content }} </textarea>
 			</div>
 			<div class="form-group">
 				<div class="text-center">
 					<button class="btn btn-success" type="submit">
-						Store Post
+						Update Post
 					</button>
 				</div>
 			</div>

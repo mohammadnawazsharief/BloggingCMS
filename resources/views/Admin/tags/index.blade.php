@@ -2,12 +2,12 @@
 
 @section('content')
 	<div class="panel panel-default">
-		<div class="panel-heading text-center">Categories</div>
+		<div class="panel-heading text-center">Tags</div>
 		<div class="panel-body">
 					<table class="table table-hover">
 						<thead>
 							<th>
-								Category Name
+								Tag Name
 							</th>
 							<th>
 								Edit
@@ -17,15 +17,15 @@
 							</th>
 						</thead>
 						<tbody>
-						@if($categories->count()>0)
-							@foreach($categories as $category)
+						@if($tags->count()>0)
+							@foreach($tags as $tag)
 								<tr>
 									<td>
-										{{$category->name}}
+										{{$tag->tag}}
 									</td>
 									<td>
 										<a 
-										href=" {{route('category.edit',['id'=>$category->id])}}"class="btn btn-xs btn-info">
+										href=" {{route('tag.edit',['id'=>$tag->id])}}"class="btn btn-xs btn-info">
 											Edit
 											
 										</a>
@@ -33,7 +33,7 @@
 
 									<td>
 										<a 
-										href=" {{route('category.delete',['id'=>$category->id])}}"class="btn btn-xs btn-danger">
+										href=" {{route('tag.delete',['id'=>$tag->id])}}"class="btn btn-xs btn-danger">
 											Delete
 										
 										</a>
@@ -42,7 +42,7 @@
 							@endforeach
 						@else 
 							<tr>
-								<th colspan="5" class="text-center">No Categories Yet</th>
+								<th colspan="5" class="text-center">No Tags Yet</th>
 							</tr>
 						@endif
 						</tbody>
