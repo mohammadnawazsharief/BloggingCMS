@@ -115,8 +115,8 @@
 
                     <div class="blog-details-author-content">
                         <div class="author-info">
-                            <h5 class="author-name">Philip Demarco</h5>
-                            <p class="author-info">SEO Specialist</p>
+                            <h5 class="author-name">Mohammad Nawaz</h5>
+                            <p class="author-info">Laravel Developer</p>
                         </div>
                         <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
                             nonummy nibh euismod.
