@@ -19,9 +19,17 @@ Route::get('/test',function(){
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+	'uses'=>'FrontendController@index',
+	'as'=>'index'
+
+]);
+
+Route::get('/post/{slug}', [
+	'uses'=>'FrontendController@singlePost',
+	'as'=>'post.single'
+
+]);
 
 Auth::routes();
 
@@ -160,12 +168,37 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 		'as'=>'user.admin'
 
 	]);
+
 	Route::get('/user/not-admin/{id}',[
 		'uses'=> 'UsersController@not_admin',
 		'as'=>'user.not.admin'
 
 	]);
+	Route::get('/user/profile',[
+		'uses' => 'ProfilesController@index',
+		'as'=> 'user.profile'
 
+	]);
+	Route::post('/user/profile/update',[
+		'uses' => 'ProfilesController@update',
+		'as'=> 'user.profile.update'
+
+	]);
+	Route::get('/user/delete/{id}',[
+		'uses' => 'UsersController@destroy',
+		'as'=> 'user.delete'
+
+	]);
+
+	Route::get('/settings',[
+		'uses'=>'SettingsController@index',
+		'as'=>'settings'
+
+	]);
+	Route::post('/settings/update',[
+		'uses'=>'SettingsController@update',
+		'as'=>'settings.update'
+	]);
 
 });
 

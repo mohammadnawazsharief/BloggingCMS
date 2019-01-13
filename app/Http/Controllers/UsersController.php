@@ -8,6 +8,10 @@ use App\Profile;
 use Session;
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+         $this->middleware('admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +52,7 @@ class UsersController extends Controller
         ]);
         $profile = Profile::create([
             'user_id'=>$user->id,
-            'avatar'=>'uploads/avatars/girl.jpg' 
+            'avatar'=>'uploads/avatars/boy.png' 
 
         ]);
         Session::flash('success','User Added Successfully');
@@ -86,7 +90,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
     }
 
     /**
@@ -97,7 +101,11 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->profile->delete();
+        $user->delete();
+        Session::flash('success','Your Deleted Forever');
+        return redirect()->back();
     }
     public function admin($id)
     {
