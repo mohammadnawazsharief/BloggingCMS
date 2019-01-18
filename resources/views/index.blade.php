@@ -14,10 +14,10 @@
 
     <!--Plugins styles-->
 
-    <link rel="stylesheet" type="text/css" href="app/css/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" type="text/css" href="app/css/swiper.min.css">
-    <link rel="stylesheet" type="text/css" href="app/css/primary-menu.css">
-    <link rel="stylesheet" type="text/css" href="app/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/jquery.mCustomScrollbar.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/swiper.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/primary-menu.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/magnific-popup.css')}}">
 
     <!--Styles for RTL-->
 
@@ -85,7 +85,7 @@
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{$first_posts->category->name}}</a>
+                                            <a href="{{route('category.single',['id'=>$first_posts->category->id])}}">{{$first_posts->category->name}}</a>
                                         </span>
 
                                         <span class="post__comments">
@@ -139,7 +139,7 @@
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{$second_posts->category->name}}</a>
+                                            <a href="{{route('category.single',['id'=>$second_posts->category->id])}}">{{$second_posts->category->name}}</a>
                                         </span>
 
                                         <span class="post__comments">
@@ -189,7 +189,7 @@
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{$third_post->category->name}}</a>
+                                            <a href="{{route('category.single',['id'=>$third_posts->category->id])}}">{{$third_posts->category->name}}</a>
                                         </span>
 
                                         <span class="post__comments">
@@ -216,7 +216,7 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                             <div class="heading">
-                                <h4 class="h1 heading-title">{{$laravel->name}}</h4>
+                                <h4 class="h1 heading-title"><a href="">{{$laravel->name}}</h4></a>
                                 <div class="heading-line">
                                     <span class="short-line"></span>
                                     <span class="long-line"></span>
@@ -267,10 +267,7 @@
                                 </div>
                             </div>
                         @endforeach
-                            
-
-                            
-                        </div>
+                       </div>
                     </div>
                 </div>
                 <!-- <div class="padded-50"></div> -->
@@ -325,36 +322,36 @@
 
 <!-- Subscribe Form -->
 
-<div class="container-fluid bg-green-color">
-    <div class="row">
-        <div class="container">
-            <div class="row">
-                <div class="subscribe scrollme">
-                    <div class="col-lg-6 col-lg-offset-5 col-md-6 col-md-offset-5 col-sm-12 col-xs-12">
-                        <h4 class="subscribe-title">Email Newsletters!</h4>
-                        <form class="subscribe-form" method="post" action="">
-                            <input class="email input-standard-grey input-white" name="email" required="required" placeholder="Your Email Address" type="email">
-                            <button class="subscr-btn">subscribe
-                                <span class="semicircle--right"></span>
-                            </button>
-                        </form>
-                        <div class="sub-title">Sign up for new Nash's content, updates, surveys & offers.</div>
+    <div class="container-fluid bg-green-color">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="subscribe scrollme">
+                        <div class="col-lg-6 col-lg-offset-5 col-md-6 col-md-offset-5 col-sm-12 col-xs-12">
+                            <h4 class="subscribe-title">Email Newsletters!</h4>
+                            <form class="subscribe-form" method="post" action="">
+                                <input class="email input-standard-grey input-white" name="email" required="required" placeholder="Your Email Address" type="email">
+                                <button class="subscr-btn">subscribe
+                                    <span class="semicircle--right"></span>
+                                </button>
+                            </form>
+                            <div class="sub-title">Sign up for new Nash's content, updates, surveys & offers.</div>
 
-                    </div>
+                        </div>
 
-                    <div class="images-block">
-                        <img src="app/img/subscr-gear.png" alt="gear" class="gear">
-                        <img src="app/img/subscr1.png" alt="mail" class="mail">
-                        <img src="app/img/subscr-mailopen.png" alt="mail" class="mail-2">
+                        <div class="images-block">
+                            <img src="app/img/subscr-gear.png" alt="gear" class="gear">
+                            <img src="app/img/subscr1.png" alt="mail" class="mail">
+                            <img src="app/img/subscr-mailopen.png" alt="mail" class="mail-2">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 <!-- End Subscribe Form -->
-</div>
+</div> <!-- ContentWrappeer -->
 
 
 

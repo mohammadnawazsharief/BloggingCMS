@@ -20,7 +20,7 @@ class Post extends Model
  	 public function getFeaturedAttribute($featured)
  	 {
  	 	return asset($featured); 
- 	 	//asset method is used to generate link for that application and we catch it in app.blade.php
+ 	 	//asset method is used to generate link for that application and we catch it in index.blade.php
  	 }
 
     public function category()
