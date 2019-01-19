@@ -87,57 +87,42 @@
 
             <!-- End Sidebar-->
 
-                    <div class="socials">Share:
-                        <a href="#" class="social__item">
-                            <i class="seoicon-social-facebook"></i>
-                        </a>
-                        <a href="#" class="social__item">
-                            <i class="seoicon-social-twitter"></i>
-                        </a>
-                        <a href="#" class="social__item">
-                            <i class="seoicon-social-linkedin"></i>
-                        </a>
-                        <a href="#" class="social__item">
-                            <i class="seoicon-social-google-plus"></i>
-                        </a>
-                        <a href="#" class="social__item">
-                            <i class="seoicon-social-pinterest"></i>
-                        </a>
-                    </div>
+                    
+                    <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox_3xnc text-center"></div>
 
                 </article>
 
                 <div class="blog-details-author">
 
                     <div class="blog-details-author-thumb">
-                        <img src="{{asset('app/img/blog-details-author.png')}}" alt="Author">
+                        <img src="{{asset($post->user->profile->avatar)}}" alt="Author" width="150px" height="150px">
                     </div>
 
                     <div class="blog-details-author-content">
                         <div class="author-info">
-                            <h5 class="author-name">Mohammad Nawaz</h5>
+                            <h5 class="author-name">{{$post->user->name}}</h5>
                             <p class="author-info">Laravel Developer</p>
                         </div>
-                        <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                            nonummy nibh euismod.
+                        <p class="text">{{$post->user->profile->about}}
                         </p>
                         <div class="socials">
 
-                            <a href="#" class="social__item">
+                            <a href="{{$post->user->profile->facebook}}" class="social__item" target="_blank">
                                 <img src="{{asset('app/svg/circle-facebook.svg')}}" alt="facebook">
                             </a>
 
-                            <a href="#" class="social__item">
+                            <a href="{{$post->user->profile->youtube}}" class="social__item" target="_blank">
+                                <img src="{{asset('app/svg/youtube.svg')}}" alt="youtube">
+                            </a>
+
+                            <!-- <a href="" class="social__item">
                                 <img src="{{asset('app/svg/twitter.svg')}}" alt="twitter">
                             </a>
 
                             <a href="#" class="social__item">
                                 <img src="{{asset('app/svg/google.svg')}}" alt="google">
-                            </a>
+                            </a> -->
 
-                            <a href="#" class="social__item">
-                                <img src="{{asset('app/svg/youtube.svg')}}" alt="youtube">
-                            </a>
 
                         </div>
                     </div>
@@ -203,7 +188,7 @@
 
                         <div class="tags-wrap">
                         	@foreach($tags as $tag)
-                            <a href="#" class="w-tags-item">{{$tag->tag}}</a>
+                            <a href="{{route('tag.single',['id'=>$tag->id])}}" class="w-tags-item" value="{{$tag->id}}">{{$tag->tag}}</a>
                             @endforeach
                         </div>
                     </div>
